@@ -10,7 +10,7 @@ function App() {
     useContext(DataContext);
 
   return (
-    <div className="App min-h-screen text-white">
+    <div className="App h-screen text-white">
       {isSupportMetaMask ? (
         networkId != undefined ? (
           networkId == 5 ? (
@@ -48,7 +48,7 @@ function App() {
         </div>
       )}
 
-      <div className="bg-shine bg-main fixed top-0 left-0 right-0 bottom-0 z-[-1]"></div>
+      <div className="bg-shine bg-main fixed top-0 left-0 right-0 bottom-0 z-[-1] h-200"></div>
 
     </div>
   );
