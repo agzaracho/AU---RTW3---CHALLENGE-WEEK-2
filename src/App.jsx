@@ -10,7 +10,7 @@ function App() {
     useContext(DataContext);
 
   return (
-    <div className="App h-screen text-white">
+    <div className="App min-h-screen text-white">
       {isSupportMetaMask ? (
         networkId != undefined ? (
           networkId == 5 ? (
