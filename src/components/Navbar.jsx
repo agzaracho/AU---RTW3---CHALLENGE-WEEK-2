@@ -36,7 +36,7 @@ const NavItem = ({ active, content, handleOnClick }) => {
 };
 
 export default function Navbar() {
-  const { requestAccount, account} = useContext(DataContext);
+  const { requestAccount, account } = useContext(DataContext);
   const [isActive, setIsActive] = useState("BuyMeACoffe");
   const navMenu = ["BuyMeACoffe", "GitHub"];
 
@@ -47,19 +47,19 @@ export default function Navbar() {
     param == "" ? setIsActive("BuyMeACoffe") : setIsActive("");
   }, [account]);
 
-  
+
   return (
     <div className="grid grid-cols-3 p-3" >
 
       <div className="w-[fit-content] cursor-pointer hover:scale-150 transition duration-400" >
         {/* LOGO */}
         <a href="https://university.alchemy.com/" target="_blank">
-          <img className="w-14 ml-3"          
-          src={au}
-          alt="AlchemyUniversity-logo"
+          <img className="w-14 ml-3"
+            src={au}
+            alt="AlchemyUniversity-logo"
           />
         </a>
-        
+
       </div>
 
       <div className="fixed bottom-5 left-[50%] translate-x-[-80%] md:static md:translate-x-[%] p-[4px] bg-[#191b1f] flex rounded-full md:w-[fit-content] place-self-center">
@@ -68,13 +68,13 @@ export default function Navbar() {
             key={item + index}
             active={isActive}
             content={item}
-            handleOnClick={() => setIsActive(item)}           
+            handleOnClick={() => setIsActive(item)}
           />
-          
+
         ))}
-        
+
       </div>
-            
+
       <div className="flex justify-self-end  md:justify-self-end  items-center justify-center">
         <a
           href="https://goerli.etherscan.io/"
@@ -83,7 +83,7 @@ export default function Navbar() {
           rel="noopenner noreferrer"
         >
           <div className="w-[9px] h-[9px] bg-yellow-500 mr-2 rounded-full"></div>
-          Goerli Testnet 
+          Goerli Testnet
         </a>
 
         {!account ? (
@@ -95,21 +95,21 @@ export default function Navbar() {
           </div>
         ) : (
           <div className="bg-[#191b1f] flex items-center rounded-2xl p-[1px]">
-          
+
             <a
               target="_blank"
               rel="noopenner noreferrer"
               href={`https://goerli.etherscan.io//address/${account}`}
               className="px-4 py-2 bg-[#191b1f] rounded-2xl  cursor-pointer hover:border-gray-600 border-[1px] border-transparent transition duration-200"
-            >           
+            >
               {shortenAddress(account)}
             </a>
           </div>
         )}
-        
-             
+
+
       </div>
-      
+
     </div>
   );
 }

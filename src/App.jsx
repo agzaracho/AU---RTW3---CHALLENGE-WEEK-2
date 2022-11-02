@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import Navbar from "./components/Navbar";
 import Error from "./components/Error";
+import Footer from "./components/Footer";
 import BuyMeACoffe from "./components/buyMeACoffe";
 import { Routes, Route } from "react-router-dom";
 import { DataContext } from "./context/DataContext";
@@ -18,7 +19,7 @@ function App() {
               <div>
                 <Navbar />
               </div>
-              <Routes>              
+              <Routes>
                 <Route path="/" element={<BuyMeACoffe />} />
                 <Route path="*" element={<Error />} />
               </Routes>
@@ -49,6 +50,8 @@ function App() {
       )}
 
       <div className="bg-shine bg-main fixed top-0 left-0 right-0 bottom-0 z-[-1] h-200"></div>
+
+      <Footer />
 
     </div>
   );

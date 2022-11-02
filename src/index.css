@@ -4,89 +4,48 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
 body {
-    min-height: 300px;
-    margin: 0;
-    padding: 0;
-    font-family: 'Inter', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
 }
 
 img {
-    -webkit-user-drag: none;
-    -khtml-user-drag: none;
-    -moz-user-drag: none;
-    -o-user-drag: none;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
 }
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
+  -webkit-appearance: none;
 }
 
-/*FOOTER*/
+footer {
+  align-self: bottom;
+  width: 100%;
+}
 
-#footer-logo {
-    position: absolute;
-    left: 20px;
-    top: 12.5px;
-    width: 61px;
-    height: 25px;
-  }
-  
-  .master-footer-list {
-    list-style-type: none;
-    overflow: hidden;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .master-footer-list li {
-    display: inline-block;
-    vertical-align: middle;
-    padding-top: 17px;
-    padding-left: 15px;
-  }
-  
-  .master-footer-list a:hover {
-    text-decoration: underline;
-  }
-  
-  /* removed master footer wrap css */
-  
-  footer {
-    font-family: var(--work-sans);
-    font-weight: 300;
-    font-size: 14px;
-    text-align: center;
-    position: absolute; /* position absolute instead of fixed */
-    bottom: -468px; /* move inside the body margin */
-    left: 0;
-    right: 0;
-    margin-bottom: 0px;
-    height: 50px;
-    width: 100%;
-    background-color: black;
-  }
-  
-  /* Removed redundant div/wrapper */
-  
-  footer a {
-    color: #ffffff;
-    text-decoration: none;
-  }
-  
-  footer span {
-    color: #ffffff;
-  }
-
+#root {
+  min-height: 100vh;
+}
 
 .bg-main {
-    background-color: #251d27;
+  background-color: #251d27;
 }
 
 .bg-shine {
-    background-image: radial-gradient(60% 60% at 50% 50%, #C850C0 -450%, transparent 100%);
+  background-image: radial-gradient(60% 60% at 50% 50%, #C850C0 -400%, transparent 100%);
 }
 
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
