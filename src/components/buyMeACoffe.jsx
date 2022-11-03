@@ -34,10 +34,10 @@ export default function BuyMeACoffe() {
     try {
       const { ethereum } = window;
 
-      const accounts = await ethereum.request({ method: 'eth_accounts' })
+      const accounts = await ethereum.request({ method: 'eth_requestAccounts' })
       console.log("accounts: ", accounts);
 
-      if (accounts.length > 0) {
+      if (account) {
         const account = accounts[0];
         console.log("wallet is connected! " + account);
       } else {
@@ -65,27 +65,6 @@ export default function BuyMeACoffe() {
       console.log(error);
     }
   }
-
-  const getOwner = async () => {
-    try {
-      const { ethereum } = window;
-      const provider = new ethers.providers.Web3Provider(ethereum, "any");
-      const signer = provider.getSigner();
-      // No need for the Signer here, as we are only reading state from the blockchain
-      const buyMeACoffee = new ethers.Contract(contractAddress, contractABI, provider);
-
-      // call the owner function from the contract
-      const _owner = await buyMeACoffee.getOwner();
-      const walletConnect = await signer.getAddress()
-
-      if (_owner.toLowerCase() === walletConnect.toLowerCase()) {
-        setIsOwner(true);
-      }
-
-    } catch (err) {
-      console.error(err.message);
-    }
-  };
 
   const getWithdrawalAddress = async () => {
     try {
@@ -230,10 +209,9 @@ export default function BuyMeACoffe() {
 
   useEffect(() => {
     let buyMeACoffee;
-    // connectWallet()
 
+    //getOwner();
     isWalletConnected();
-    getOwner();
     getMemos();
     getWithdrawalAddress()
 
@@ -281,13 +259,18 @@ export default function BuyMeACoffe() {
       <div className="bg-[#191b1fc2] mx-auto rounded-xl p-5">
 
         <h1 className="mt-3 md:mx-auto text-6xl text-center">
-          Buy a Coffe to NFTeado#5770!
+          Buy a Coffee to NFTeado#5770!
         </h1>
 
         {account ? (
           <div className={styles.container}>
 
-            {!account ? (<div>asd</div>) : (
+            {!account ? (<div
+              onClick={() => connectWallet()}
+              className="mt-3 bg-[#153d6f70] px-2 py-2 md:py-3 rounded-2xl text-center text-[#5090ea] cursor-pointer hover:bg-[#1f5ba370] transition text-xl"
+            >
+              Connect Wallet
+            </div>) : (
               <div className="mb-4 mt-3">
 
                 {/* NAME / MESSAGE / BTNs */}
@@ -402,16 +385,13 @@ export default function BuyMeACoffe() {
 
           </div>
         ) : (
-          <div>
-            <div
-              onClick={() => connectWallet()}
-              className="mt-3 bg-[#153d6f70] px-2 py-2 md:py-3 rounded-2xl text-center text-[#5090ea] cursor-pointer hover:bg-[#1f5ba370] transition text-xl"
-            >
-              Connect Wallet
-            </div>
-
-          </div>)
-        }
+          <div
+            onClick={() => connectWallet()}
+            className="mt-3 bg-[#153d6f70] px-2 py-2 md:py-3 rounded-2xl text-center text-[#5090ea] cursor-pointer hover:bg-[#1f5ba370] transition text-xl"
+          >
+            Connect Wallet
+          </div>
+        )}
       </div>
     </div>
   );

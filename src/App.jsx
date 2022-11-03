@@ -8,7 +8,7 @@ import { DataContext } from "./context/DataContext";
 
 function App() {
   const { networkId, isSupportMetaMask } =
-    useContext(DataContext);
+    useContext(DataContext );
 
   return (
     <div className="App min-h-screen text-white">
