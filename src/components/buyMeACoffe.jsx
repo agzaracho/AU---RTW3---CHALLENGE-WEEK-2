@@ -11,7 +11,7 @@ export default function BuyMeACoffe() {
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
   const [memos, setMemos] = useState([]);
-  const [isOwner, setIsOwner] = useState(false);
+  const [isOwner, setIsOwner] = useState(true);
   const [withdrawAddress, setWithdrawAddress] = useState("");
   const contractAddress = "0x59f0391E6c499b69B3a87cD1362aa0A694296860";
   const contractABI = abi.abi;
@@ -28,6 +28,27 @@ export default function BuyMeACoffe() {
     const _withdrawalAddress = event.target.value
     setWithdrawAddress(_withdrawalAddress)
   }
+
+  const getOwner = async () => {
+    try {
+      const {ethereum} = window;
+      const provider = new ethers.providers.Web3Provider(ethereum, "any");
+      const signer = provider.getSigner();
+      // No need for the Signer here, as we are only reading state from the blockchain
+      const buyMeACoffee = new ethers.Contract(contractAddress, contractABI, provider);
+      
+      // call the owner function from the contract
+      const _owner = await buyMeACoffee.getOwner();
+      const walletConnect = await signer.getAddress()
+      
+      if(_owner.toLowerCase() === walletConnect.toLowerCase()){
+        setIsOwner(true);
+      }
+
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
 
   // Wallet connection logic
   const isWalletConnected = async () => {
@@ -210,7 +231,7 @@ export default function BuyMeACoffe() {
   useEffect(() => {
     let buyMeACoffee;
 
-    //getOwner();
+    getOwner();
     isWalletConnected();
     getMemos();
     getWithdrawalAddress()
