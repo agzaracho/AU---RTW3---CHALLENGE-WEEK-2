@@ -11,7 +11,7 @@ export default function BuyMeACoffe() {
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
   const [memos, setMemos] = useState([]);
-  const [isOwner, setIsOwner] = useState(true);
+  const [isOwner, setIsOwner] = useState();
   const [withdrawAddress, setWithdrawAddress] = useState("");
   const contractAddress = "0x59f0391E6c499b69B3a87cD1362aa0A694296860";
   const contractABI = abi.abi;
