@@ -11,7 +11,7 @@ export default function Footer() {
     <footer className="text-center bg-gray-900 text-white footer">
       <div className="text-center mt-2 p-4">
        
-          <a className="text-lime-400" href="https://university.alchemy.com/"> Alchemy University | </a> 
+          <a className="text-lime-400" href="https://github.com/agzaracho"> AGZ | </a> 
           {account ? (<>If you bought me a coffee, ask me for a thank you POAP on Discord. Thank you!</>):(<>Front for dApp develop in the RTW3</>)}
       </div>
     </footer>
