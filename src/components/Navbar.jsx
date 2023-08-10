@@ -53,7 +53,7 @@ export default function Navbar() {
 
       <div className="w-[fit-content] cursor-pointer hover:scale-150 transition duration-400" >
         {/* LOGO */}
-        <a href="https://university.alchemy.com/" target="_blank">
+        <a href="https://github.com/agzaracho" target="_blank">
           <img className="w-14 ml-3"
             src={au}
             alt="AlchemyUniversity-logo"
