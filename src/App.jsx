@@ -14,7 +14,7 @@ function App() {
     <div className="App min-h-screen text-white">
       {isSupportMetaMask ? (
         networkId != undefined ? (
-          networkId == 5 ? (
+          networkId == 11155111 ? (
             <div>
               <div>
                 <Navbar />
