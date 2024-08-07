@@ -38,7 +38,7 @@ const NavItem = ({ active, content, handleOnClick }) => {
 export default function Navbar() {
   const { requestAccount, account } = useContext(DataContext);
   const [isActive, setIsActive] = useState("BuyMeACoffe");
-  const navMenu = ["BuyMeACoffe", "GitHub"];
+  const navMenu = ["BuyMeACoffe", "GitHub", "ASD"];
 
 
   useEffect(async () => {
